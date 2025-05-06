@@ -1,12 +1,8 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { OrderPopup } from "@/widgets/order-popup";
 
@@ -14,17 +10,24 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [orderPopupOpen, setOrderPopupOpen] = useState(false);
-  const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+  const { pathname } = useLocation();
+
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -78,7 +81,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={() => setIsDark(!isDark)}
             aria-label="Toggle theme"
           >
             <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -92,7 +95,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={() => setIsDark(!isDark)}
             aria-label="Toggle theme"
           >
             <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

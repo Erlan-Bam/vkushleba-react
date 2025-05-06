@@ -50,18 +50,6 @@ export function ContactSection() {
 
               <div className="flex items-start gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-lg">Адрес</h3>
-                  <p className="text-muted-foreground">
-                    ул. Хлебная 123, Алматы, Казахстан
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
                   <Clock className="h-6 w-6 text-primary" />
                 </div>
                 <div>

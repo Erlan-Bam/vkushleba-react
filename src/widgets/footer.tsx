@@ -81,12 +81,6 @@ export function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-bold">Контакты</h3>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">
-                    ул. Хлебная 123, Алматы, Казахстан
-                  </span>
-                </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-primary shrink-0" />
                   <span className="text-muted-foreground">

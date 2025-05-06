@@ -1,6 +1,203 @@
-html,
-body,
-#root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 30 10% 15%;
+
+    --card: 36 33% 97%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 36 33% 97%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 30 84% 35%;
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 30 20% 90%;
+    --secondary-foreground: 30 10% 15%;
+
+    --muted: 30 20% 90%;
+    --muted-foreground: 30 10% 40%;
+
+    --accent: 30 20% 90%;
+    --accent-foreground: 30 10% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 36 33% 97%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 30 84% 35%;
+
+    --radius: 0.5rem;
+
+    --font-playfair: "Playfair Display", serif;
+    --font-inter: "Inter", sans-serif;
+  }
+
+  .dark {
+    --background: 30 10% 15%;
+    --foreground: 36 33% 97%;
+
+    --card: 30 10% 15%;
+    --card-foreground: 36 33% 97%;
+
+    --popover: 30 10% 15%;
+    --popover-foreground: 36 33% 97%;
+
+    --primary: 30 84% 60%;
+    --primary-foreground: 30 10% 15%;
+
+    --secondary: 30 10% 25%;
+    --secondary-foreground: 36 33% 97%;
+
+    --muted: 30 10% 25%;
+    --muted-foreground: 30 10% 70%;
+
+    --accent: 30 10% 25%;
+    --accent-foreground: 36 33% 97%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 36 33% 97%;
+
+    --border: 30 10% 25%;
+    --input: 30 10% 25%;
+    --ring: 30 84% 60%;
+  }
+
+  /* Add this after the existing base layer */
+  @media (min-width: 480px) {
+    .xs\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair;
+  }
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-sans {
+  font-family: var(--font-inter);
+}
+
+/* Custom animations */
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  30% {
+    transform: translate(3%, -15%);
+  }
+  50% {
+    transform: translate(12%, 9%);
+  }
+  70% {
+    transform: translate(9%, 4%);
+  }
+  90% {
+    transform: translate(-1%, 7%);
+  }
+}
+
+.grain-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("/images/grain-texture.png");
+  background-repeat: repeat;
+  background-size: 200px;
+  opacity: 0.03;
+  animation: grain 8s steps(10) infinite;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.reveal-text.revealed {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.bread-pattern {
+  background-image: url("/images/bread-pattern.svg");
+  background-repeat: repeat;
+  background-size: 300px;
+  opacity: 0.05;
+}
+
+/* Add container size for extra large screens */
+.container {
   width: 100%;
-  min-height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
 }

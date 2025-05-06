@@ -1,21 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import { RevealAnimation } from "@/shared/ui/reveal-animation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useProductContext } from "@/components/product-provider";
 
 const categories = [
   { id: "all", name: "Все продукты" },
-  { id: "sourdough", name: "Хлеб на закваске" },
-  { id: "baguettes", name: "Багеты" },
-  { id: "rye", name: "Ржаной хлеб" },
+  { id: "bread", name: "Хлеб" },
+  { id: "black-bread", name: "Черный хлеб" },
   { id: "bakery", name: "Выпечка" },
-  { id: "specialty", name: "Специальные сорта" },
 ];
 
 export function ProductCategories() {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const { activeCategory, setActiveCategory } = useProductContext();
 
   return (
     <section className="py-6 sm:py-8">

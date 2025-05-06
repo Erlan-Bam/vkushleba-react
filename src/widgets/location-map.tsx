@@ -17,12 +17,6 @@ export function LocationMap() {
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-medium">Адрес</p>
-                      <p className="text-muted-foreground text-sm">
-                        ул. Хлебная 123, Алматы, Казахстан
-                      </p>
-                    </div>
                   </div>
 
                   <div className="flex items-start gap-3">

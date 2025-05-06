@@ -175,12 +175,6 @@ export function OrderPopup({ open, onOpenChange }: OrderPopupProps) {
                     <Mail className="h-4 w-4 text-primary" />
                     <span className="text-sm">web@vkushleba.kz</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <MapPin className="h-4 w-4 text-primary" />
-                    <span className="text-sm">
-                      ул. Хлебная 123, Алматы, Казахстан
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
