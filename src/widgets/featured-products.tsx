@@ -2,13 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RevealAnimation } from "@/shared/ui/reveal-animation";
 import { RevealText } from "@/shared/ui/reveal-text";
@@ -42,11 +36,11 @@ export function FeaturedProducts() {
           {products.map((product, index) => (
             <RevealAnimation key={product.id} delay={0.1 * index}>
               <Card
-                className="overflow-hidden transition-all duration-300 h-full flex flex-col"
+                className="overflow-hidden transition-all duration-300 h-full flex flex-col bg-white"
                 onMouseEnter={() => setHoveredId(product.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="relative aspect-square overflow-hidden">
+                <div className="relative aspect-square overflow-hidden mt-2">
                   <img
                     src={product.image || "/placeholder.svg"}
                     alt={product.name}
@@ -67,19 +61,11 @@ export function FeaturedProducts() {
                     {product.name}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow py-2">
+                <CardContent className="flex-grow py-2 mb-4">
                   <p className="text-sm sm:text-base text-muted-foreground">
                     {product.description}
                   </p>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center pt-2 pb-4 sm:pb-6">
-                  <p className="font-bold text-base sm:text-lg">
-                    {product.price} ₸
-                  </p>
-                  <Button size="sm" variant="outline" asChild>
-                    <Link to={`/products/${product.slug}`}>Подробнее</Link>
-                  </Button>
-                </CardFooter>
               </Card>
             </RevealAnimation>
           ))}

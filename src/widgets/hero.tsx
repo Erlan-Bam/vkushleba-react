@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { RevealAnimation } from "@/shared/ui/reveal-animation";
-import { RevealText } from "@/shared/ui/reveal-text";
 import { OrderPopup } from "@/widgets/order-popup";
 import { Link } from "react-router-dom";
 
@@ -17,11 +16,11 @@ export function Hero() {
 
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 md:gap-12 items-center z-10">
         <div className="space-y-6">
-          <RevealText>
+          <RevealAnimation>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Настоящий вкус домашнего хлеба
             </h1>
-          </RevealText>
+          </RevealAnimation>
 
           <RevealAnimation delay={0.2}>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground">

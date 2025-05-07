@@ -36,7 +36,6 @@ export function Header() {
     { name: "Главная", path: "/" },
     { name: "О нас", path: "/about" },
     { name: "Продукты", path: "/products" },
-    { name: "Контакты", path: "/contact" },
   ];
 
   return (

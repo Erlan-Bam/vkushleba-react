@@ -65,14 +65,6 @@ export function Footer() {
                     Продукты
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/contact"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Контакты
-                  </Link>
-                </li>
               </ul>
             </div>
           </RevealAnimation>

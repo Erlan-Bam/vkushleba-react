@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { RevealAnimation } from "@/shared/ui/reveal-animation";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { products } from "@/shared/content/product";
@@ -65,11 +65,11 @@ export function ProductGrid() {
                       </h3>
                     </Link>
                   </CardContent>
-                  <CardFooter className="flex justify-between items-center pt-0 pb-4 sm:pb-6">
+                  {/* <CardFooter className="flex justify-between items-center pt-0 pb-4 sm:pb-6">
                     <p className="font-bold text-base sm:text-lg">
-                      {product.price} ₸
+                      {product.weight}
                     </p>
-                  </CardFooter>
+                  </CardFooter> */}
                 </Card>
               </RevealAnimation>
             ))}
